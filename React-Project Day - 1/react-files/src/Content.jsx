@@ -18,7 +18,7 @@ const Content = () => {
           </div>
         </div>
         <div className="col-md-6">
-          <img src="../public/logo192.png" alt="Sample" className="img-fluid" />
+          <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--EkOWQT5j--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://raw.githubusercontent.com/marioarranzr/dev.to/master/blog-posts/react-bootstrap/assets/react-bootstrap.png" alt="Sample" className="img-fluid" />
         </div>
       </div>
       <div className="row my-5">
