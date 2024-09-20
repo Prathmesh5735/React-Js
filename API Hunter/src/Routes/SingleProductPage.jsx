@@ -1,23 +1,27 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import Loader from "../Components/Loader"
 
 
 
 function SingleProductPage(){
     const {id}=useParams()
     const [data,setdata]=useState({})
+    const [loading,setloading]=useState(false)
  
     useEffect(()=>{
+        setloading(true)
         axios.get(`https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-tech-products/${id}`)
         .then((res)=>{
+            setloading(false)
             setdata(res.data.data)
         }).catch((err)=>{
             console.log(err)
         })
     },[])
 
-    return (
+    return loading ? <Loader/> : (
         
         <div data-testid="products-container" >   
             <div>

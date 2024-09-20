@@ -8,10 +8,13 @@ import { Navigate, useNavigate } from "react-router-dom";
 function Dashboard() {
   const{logoutUser,authState}=useContext(AuthContext)
   const [data,setdata]=useState([])
+  const [loading,setloading]=useState(false)
   const navigate = useNavigate();
   useEffect(()=>{
+    setloading(true)
     axios.get("https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-tech-products")
     .then((res)=>{
+      setloading(false)
       setdata(res.data.data)
     }).catch((err)=>{
       console.log(err)
@@ -22,7 +25,7 @@ function Dashboard() {
     logoutUser();
     navigate("/login");
   }
-  return !data ? <Loader/> : (
+  return loading ? <Loader/> : (
     <div>
       <h3>Dashboard</h3>
       <div>
